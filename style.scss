@@ -154,6 +154,7 @@ code {
     			&.alt2 {background-color: lighten($pink_light, 2%);}
     			.comments{color: $fucsia;}
     			.string, .keyword{color: $fucsia_dark}
+    			height: 1.6em;
 	    	}
 	    	.line:hover {
     			background-color: $pink;
