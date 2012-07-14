@@ -23,7 +23,11 @@ body {
   font-size: 16px;
   line-height: 1.6em;
   color: $text_color;
-  background-color: $pink;
+  background: {
+  	color: $pink;
+  	image: url("background.png");
+  	repeat: repeat;
+  }
 
   a:link, a:visited, a:active {
     color: $fucsia_dark;
@@ -59,7 +63,6 @@ code {
 }
 
 #wrapper {
-  background-color: $pink;
   padding: $inner_padding;
   
   article {
