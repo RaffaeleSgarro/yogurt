@@ -11,7 +11,9 @@
 	</head>
 
 	<body <?php body_class(); ?>>
-	
+		<div id="upside_down">
+			<img src="<?php bloginfo('template_directory') ?>/upside_down.png" />
+		</div>
   		<header id="header">
   			<div><a href="<?php echo home_url(); ?>/">
           <img src="<?php bloginfo('template_directory') ?>/zybnet-console.png" /></a></div>

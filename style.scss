@@ -57,6 +57,12 @@ code {
 
 @import "ribbon.scss";
 
+#upside_down {
+  position: fixed;
+  top: 0;
+  left: 10px;
+}
+
 #wrapper {
   padding: $inner_padding;
   
