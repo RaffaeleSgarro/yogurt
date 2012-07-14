@@ -43,6 +43,8 @@
         -ms-transition: background 0.2s, margin 0.2s;
          -o-transition: background 0.2s, margin 0.2s;
             transition: background 0.2s, margin 0.2s;
+            
+    @include engraved_text($pink_light);
   }
   
   a:hover {

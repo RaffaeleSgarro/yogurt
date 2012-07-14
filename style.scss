@@ -18,6 +18,10 @@ $text_color: #555;
               border-radius: $radius;
 }
 
+@mixin engraved_text($color: $text_color) {
+  text-shadow: -1px -1px 0 darken($text_color, 20%);
+}
+
 body {
   font-family: "PT Sans Caption", "Ubuntu", sans-serif;
   font-size: 16px;
@@ -106,7 +110,8 @@ code {
       position: absolute;
       top: 15px;
       padding: 6px 6px 12px;
-      color: $pink;
+      color: $pink_light;
+      @include engraved_text($pink_light);
       border-bottom: 4px solid darken($fucsia_dark, 10%);
       @include border-radius(6px);
       background-color: $fucsia_dark;
