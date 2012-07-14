@@ -13,10 +13,11 @@
 	<body <?php body_class(); ?>>
 	
   		<header id="header">
-  			<a href="<?php echo home_url(); ?>/">
-          <img src="<?php bloginfo('template_directory') ?>/zybnet-console.png" /></a>
+  			<div><a href="<?php echo home_url(); ?>/">
+          <img src="<?php bloginfo('template_directory') ?>/zybnet-console.png" /></a></div>
   			<?php wp_nav_menu( array( 'container_class' => 'menu-header',
-            'theme_location' => 'navigation' ) ); ?>
+            'theme_location' => 'navigation', 'menu_class' => 'ribbon') ); ?>
+            
   		</header>
   		
 	  <div id="wrapper">

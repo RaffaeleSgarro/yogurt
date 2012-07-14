@@ -1,0 +1,70 @@
+.ribbon {
+
+  margin-top: 20px;
+  display: inline-block;
+  
+  &:after, &:before {
+    margin-top: 0.5em;
+    content: "";
+    float: left;
+    border: 1.5em solid $fucsia_dark;
+  }
+  
+  &:after {
+    border-right-color: transparent;
+  }
+  
+  &:before {
+    border-left-color: transparent;
+  }
+  
+  li {
+    float: left;
+    height: 3.5em;
+    overflow: hidden;
+  }
+  
+  a:link, a:visited, a:active {
+    color: $pink_light;
+  }
+  
+  // animated folds 
+  a {
+    line-height: 3em;
+    padding: 0 20px;
+    display: inline-block;
+    margin-top: 0.5em;
+    position: relative;
+    color: $pink_light;
+    background: $fucsia_dark;
+    
+    -webkit-transition: background 0.2s, margin 0.2s;
+       -moz-transition: background 0.2s, margin 0.2s;
+        -ms-transition: background 0.2s, margin 0.2s;
+         -o-transition: background 0.2s, margin 0.2s;
+            transition: background 0.2s, margin 0.2s;
+  }
+  
+  a:hover {
+    color: $pink_light;
+    background: $fucsia;
+    margin-top: 0;
+  }
+  
+  a:before, a:after {
+    content: "";
+    position: absolute;
+    top: 3em;
+    border-bottom: 0.5em solid $fucsia_dark;
+  }
+  
+  a:before {
+    left: 0;
+    border-right: 0.5em solid black;
+  }
+  
+  a:after {
+    right: 0;
+    border-left: 0.5em solid black;
+  }
+}

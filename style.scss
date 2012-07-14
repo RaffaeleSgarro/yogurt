@@ -53,14 +53,9 @@ code {
   text-align: center;
   padding: $inner_padding;
   
-  ul.menu {
-    margin-top: 30px;
-    li {
-      display: inline;
-      padding: 10px;
-    }
-  }
 }
+
+@import "ribbon.scss";
 
 #wrapper {
   padding: $inner_padding;
