@@ -13,6 +13,7 @@
 				  <h2>
             <a href="<?php the_permalink() ?>" rel="bookmark">
               <?php the_title(); ?>
+              <?php if (current_user_can("edit_posts")) edit_post_link("[Edit]") ?>
             </a>
           </h2>
 		    </header>
