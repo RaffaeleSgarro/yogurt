@@ -11,6 +11,13 @@ $inner_padding: 10px 5%;
 $timestamp_width: 60px;
 $text_color: #555;
 
+/* Use like selector { @include border-radius(10px); } */
+@mixin border-radius($radius: 1px) {
+      -webkit-border-radius: $radius;
+         -moz-border-radius: $radius;
+              border-radius: $radius;
+}
+
 body {
   font-family: "PT Sans Caption", "Ubuntu", sans-serif;
   font-size: 16px;
@@ -31,6 +38,11 @@ body {
 
 pre, code {
   font-family: "Droid Sans Mono", monaco, "courier new", courier, monospaced;
+}
+
+code {
+  background-color: $pink;
+  padding: 0 5px;
 }
 
 #header {
@@ -116,9 +128,19 @@ pre, code {
     
     .syntaxhighlighter {
     
+    	table {
+    		width: 100%
+    	}
+    
     	td.gutter {
     		text-align: right;
     		color: lighten($text_color, 40%);
+    		width: 40px;
+    	}
+    	
+    	code {
+    		background-color: transparent;
+    	
     	}
     	
     	td.code {
