@@ -1,5 +1,6 @@
 @import "reset.scss";
 @import url('http://fonts.googleapis.com/css?family=Droid+Sans+Mono');
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700);
 
 $green: #DEFFCE;
 $fucsia: #FF79D8;
@@ -11,7 +12,7 @@ $timestamp_width: 60px;
 $text_color: #555;
 
 body {
-  font-family: "Droid Sans Mono", monaco, "courier new", courier, monospaced;
+  font-family: "PT Sans Caption", "Ubuntu", sans-serif;
   font-size: 16px;
   line-height: 1.6em;
   color: $text_color;
@@ -26,6 +27,10 @@ body {
     color: $fucsia;
     text-decoration: none;
   }
+}
+
+pre, code {
+  font-family: "Droid Sans Mono", monaco, "courier new", courier, monospaced;
 }
 
 #header {
