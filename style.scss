@@ -80,7 +80,9 @@ code {
     padding: 6px 15px 25px;
     background-color: $pink_light;
     overflow: hidden;
-    
+    border: 1px solid $fucsia;
+	border-bottom-width: 4px;
+	
     p, ul, ol {
     	margin: 1.2em 0;
     }
