@@ -46,11 +46,14 @@ body {
 
 pre, code {
   font-family: "Droid Sans Mono", monaco, "courier new", courier, monospaced;
+  font-size: 15px;
 }
 
 code {
   background-color: $pink;
   padding: 0 5px;
+  @include border_radius(3px);
+  border: 1px solid darken($pink, 5%);
 }
 
 #header {
@@ -141,9 +144,12 @@ code {
     }
     
     .syntaxhighlighter {
-    
+		border-left: 4px solid $fucsia_dark;
+		
     	table {
-    		width: 100%
+			border: 1px solid $pink;
+			border-left: none;
+    		width: 100%;
     	}
     
     	td.gutter {
@@ -154,7 +160,7 @@ code {
     	
     	code {
     		background-color: transparent;
-    	
+			border: none;
     	}
     	
     	td.code {
