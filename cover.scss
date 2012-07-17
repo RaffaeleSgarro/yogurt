@@ -1,0 +1,39 @@
+$width: 600px;
+$distance: 20px;
+
+#cover_wrapper {
+	width: $width;
+	margin: 0 auto;
+	
+	.row {
+		overflow: hidden;
+	}
+	
+	.column {
+		width: ($width / 2) - $distance;
+		margin-top: $distance;
+		
+		h2 {
+			font-size: 120%;
+			color: white;
+			background: $fucsia_dark;
+			margin-bottom: $distance;
+			border-left: 5px solid darken($fucsia_dark, 10%);
+			padding: 10px;
+			@include engraved_text(white);
+		}
+	
+		p {
+			background: $pink_light;
+			padding: 10px;
+		}
+	}
+	
+	.left {
+		float: left;
+	}
+	
+	.right {
+		float: right;
+	}
+}
