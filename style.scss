@@ -83,8 +83,22 @@ code {
     border: 1px solid $fucsia;
 	border-bottom-width: 4px;
 	
-    p, ul, ol {
+    p, ul, ol, h2, h3, h4, h5 {
     	margin: 1.2em 0;
+    }
+    
+    ul ul, ul ol, ol ol, ol ul {
+    	margin: 0;
+    }
+    
+    h2, h3, h4, h5 {
+    	color: $fucsia_dark;
+    	font-size: 1.3em;
+    }
+    
+    header h2 {
+    	margin: 0;
+    	font-size: 1em;
     }
     
     ul {
