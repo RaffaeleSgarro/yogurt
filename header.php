@@ -5,6 +5,7 @@
 		<title><?php wp_title('&laquo;', true, 'right'); bloginfo( 'name' ); ?></title>
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.png" />
 		<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
     <?php if (!is_admin()) { wp_enqueue_script('html5_shim'); } ?>
 		<?php wp_head(); ?>
