@@ -56,6 +56,17 @@ code {
   border: 1px solid darken($pink, 5%);
 }
 
+blockquote {
+  border-left: 4px solid $fucsia_dark;
+  font-style: italic;
+  background: $pink;
+  padding: 1em;
+  
+  p {
+	margin: 0;
+  }
+}
+
 #header {
   text-align: center;
   padding: $inner_padding;
@@ -71,6 +82,10 @@ code {
   z-index: 10;
 }
 
+p, ul, ol, h2, h3, h4, h5, blockquote {
+  	margin: 1.2em 0;
+}
+
 #wrapper {
   padding: $inner_padding;
   
@@ -82,10 +97,6 @@ code {
     overflow: hidden;
     border: 1px solid $fucsia;
 	border-bottom-width: 4px;
-	
-    p, ul, ol, h2, h3, h4, h5 {
-    	margin: 1.2em 0;
-    }
     
     ul ul, ul ol, ol ol, ol ul {
     	margin: 0;
