@@ -1,8 +1,9 @@
 <?php
 
-add_theme_support('automatic-feed-links');
+add_theme_support( 'automatic-feed-links' );
 add_action( 'init', 'register_my_menus' );
-add_action('wp_enqueue_scripts', 'register_my_scripts');
+add_action( 'init', 'register_nav_sidebar' );
+add_action( 'wp_enqueue_scripts', 'register_my_scripts' );
 
 function register_my_scripts() {
 	wp_enqueue_script(
@@ -12,7 +13,16 @@ function register_my_scripts() {
 	);
 }    
  
-
+function register_nav_sidebar() {
+  register_sidebar( array(
+    'id' => 'navigation',
+    'name' => 'Navigation',
+    'before_widget' => '',
+    'after_widget' => '',
+    'before_title' => '<h2>',
+    'after_title' => '</h2>'
+  ));
+}
 
 function register_my_menus() {
   register_nav_menus(array(
