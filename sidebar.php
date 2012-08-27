@@ -10,7 +10,7 @@
 <ul>
 <?php foreach( array_reverse( get_tags( array('orderby' => 'count' ) ) ) as $tag): ?>
 	<li>
-		<a href="<?php echo get_tag_link( $tag->name ) ?>">
+		<a href="<?php echo get_tag_link( $tag->term_id ) ?>">
 			#<?php echo $tag->name ?>
 		</a>
 	</li>
