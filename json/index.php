@@ -21,6 +21,8 @@ header('content-type: application/json');
 $term = isset($_REQUEST['search']) ? $_REQUEST['search'] : '';
 // Strip all tags
 $term = wp_kses($term, array());
+// remove SQL special chars % and _ for LIKE
+$term = str_replace( array('_', '%'), "", $term );
 
 $result = array( 'search' => $term );
 

@@ -64,6 +64,15 @@ $(function(){
 	
 	search.keyup(function( e ) {
 		var term = search.val();
+		
+		// escape
+		if (term.match(/[_|%]/)) {
+			term = term.replace(/[_|%]/g, '' );
+			search.css( {"background": "#FFDBDB"} );
+			setTimeout( function(){search.css( {"background": "white"} )}, 1000 );
+			search.val( term );
+		}
+		
 		var ul = $("#search-result");
 		
 		if ( term.length < 3 ) {
