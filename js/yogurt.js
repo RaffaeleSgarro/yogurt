@@ -62,6 +62,9 @@ $(function(){
 	
 	$("#searchform").submit(function(e) {e.preventDefault();});
 	
+	// This is the cache for async searches
+	var cache = [];
+	
 	search.keyup(function( e ) {
 		var term = search.val();
 		
@@ -81,33 +84,45 @@ $(function(){
 			return;
 		}
 		
-		(function(term) {
-			setTimeout(function() {
-				if (term == search.val())
-					fireSearch(term);
-			}, 500);
-		})(term);
+		function afterSearch ( data ) {
+			// There's a race condition among async request
+			// Check if the search term is what NOW is in the search box
+			if ( data.search != search.val() )
+				return;
+			
+			if ( data.error ) {
+				log.text ( data.error );
+				ul.empty();
+			} else {
+				log.text ( "Found " + data.posts.length + " posts" );
+				ul.empty();
+				$.each(data.posts, function(i, post) {
+					ul.prepend("<li><a href='" + post.permalink + "'>" + post.post_title + "</a></li>");
+				});
+			}
+		}
 		
-		var fireSearch = function (term) {
+		function fireSearch (term) {
 			log.text("Loading...");
 			$.get( yogurt + "/json/index.php", {'search': term}, function (data) {
-				// There's a race condition among async request
-				// Check if the search term is what NOW is in the search box
-				if ( data.search != search.val() )
-					return;
-				
-				if ( data.error ) {
-					log.text ( data.error );
-					ul.empty();
-				} else {
-					log.text ( "Found " + data.posts.length + " posts" );
-					ul.empty();
-					$.each(data.posts, function(i, post) {
-						ul.prepend("<li><a href='" + post.permalink + "'>" + post.post_title + "</a></li>");
-					});
-				}
+				// Cache the result
+				cache [ data.search ] = data;
+				afterSearch(data);
 			});
 		}
+		
+		(function(term) {
+			setTimeout(function() {
+				if (term == search.val()) {
+					// Se if we have a cached result
+					if ( cache [ term ] ) {
+						afterSearch( cache[term] );
+					} else {
+						fireSearch(term);
+					}
+				}
+			}, 500);
+		})(term);
 		
 	});
 });
