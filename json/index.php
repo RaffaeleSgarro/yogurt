@@ -33,9 +33,9 @@ $posts = $wpdb->get_results($wpdb->prepare(
 	"
 	SELECT ID, post_title
 	FROM {$wpdb->posts}
-	WHERE post_status = 'publish' AND post_title LIKE '%%%s%%'
+	WHERE post_status = 'publish' AND post_title LIKE %s
 	LIMIT 10
-	", $term)
+	", "%" . $term . "%")
 	, ARRAY_A);
 
 if ( !$posts )
