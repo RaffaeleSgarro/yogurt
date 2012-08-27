@@ -8,6 +8,7 @@
 		<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.png" />
 		<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
    	<?php if (!is_admin()) { wp_enqueue_script('html5_shim'); } ?>
+   	<script>var yogurt = "<?php bloginfo('template_url')?>";</script>
 		<?php wp_head(); ?>
 	</head>
 

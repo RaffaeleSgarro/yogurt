@@ -37,7 +37,8 @@ $(function() {
 $(function(){
 	// Visual part make it fixed
 	var box = $("#searchbox");
-	
+	var search = $("#search");
+	var log = $("#search-log");
 	if ( ! box.length )
 		return;
 	
@@ -60,6 +61,46 @@ $(function(){
 	});
 	
 	$("#searchform").submit(function(e) {e.preventDefault();});
+	
+	search.keyup(function( e ) {
+		var term = search.val();
+		var ul = $("#search-result");
+		
+		if ( term.length < 3 ) {
+			log.text("Type to search");
+			ul.empty();
+			return;
+		}
+		
+		(function(term) {
+			setTimeout(function() {
+				if (term == search.val())
+					fireSearch(term);
+			}, 500);
+		})(term);
+		
+		var fireSearch = function (term) {
+			log.text("Loading...");
+			$.get( yogurt + "/json/index.php", {'search': term}, function (data) {
+				// There's a race condition among async request
+				// Check if the search term is what NOW is in the search box
+				if ( data.search != search.val() )
+					return;
+				
+				if ( data.error ) {
+					log.text ( data.error );
+					ul.empty();
+				} else {
+					log.text ( "Found " + data.posts.length + " posts" );
+					ul.empty();
+					$.each(data.posts, function(i, post) {
+						ul.prepend("<li><a href='" + post.permalink + "'>" + post.post_title + "</a></li>");
+					});
+				}
+			});
+		}
+		
+	});
 });
 
 })(jQuery);

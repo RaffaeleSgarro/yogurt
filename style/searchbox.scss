@@ -3,6 +3,7 @@
  *
  */
 #searchbox {
+	width: $sidebar_width - 20px; // double padding
 	background-color: $fucsia_dark;
 	color: $pink_light;
 	padding: 10px;
@@ -27,6 +28,10 @@
 	
 	a:hover {
 		color: $fucsia;
+	}
+	
+	li {
+		list-style: square inside;
 	}
 }
 
