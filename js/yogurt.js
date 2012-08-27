@@ -37,6 +37,10 @@ $(function() {
 $(function(){
 	// Visual part make it fixed
 	var box = $("#searchbox");
+	
+	if ( ! box.length )
+		return;
+	
 	var original = box.offset().top;
 	var fixed = false;
 	var adminbarOffset = ( $("#wpadminbar").length ) ? $("#wpadminbar").height() : 0;
