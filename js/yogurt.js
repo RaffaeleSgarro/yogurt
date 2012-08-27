@@ -33,4 +33,29 @@ $(function() {
 	
 });
 
+/* Searchbox things*/
+$(function(){
+	// Visual part make it fixed
+	var box = $("#searchbox");
+	var original = box.offset().top;
+	var fixed = false;
+	var adminbarOffset = ( $("#wpadminbar").length ) ? $("#wpadminbar").height() : 0;
+	adminbarOffset += 'px';
+	
+	$(window).scroll(function() {
+		var shouldBeFixed = $(window).scrollTop() > original;
+		
+		if ( shouldBeFixed && !fixed) {
+			fixed = true;
+			box.css({'position': 'fixed', 'top': adminbarOffset, 'left': box.offset().left});
+		} else if ( !shouldBeFixed && fixed) {
+			fixed = false;
+			box.css({'position': 'static'});
+		}
+		
+	});
+	
+	$("#searchform").submit(function(e) {e.preventDefault();});
+});
+
 })(jQuery);

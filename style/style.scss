@@ -16,11 +16,19 @@ $sidebar_width: 320px;
 @mixin border-radius($radius: 1px) {
       -webkit-border-radius: $radius;
          -moz-border-radius: $radius;
+           -o-border-radius: $radius;
               border-radius: $radius;
 }
 
 @mixin engraved_text($color: $text_color) {
   text-shadow: -1px -1px 0 darken($text_color, 20%);
+}
+
+@mixin box-shadow ($shadows...) {
+	-webkit-box-shadow: $shadows;
+	   -moz-box-shadow: $shadows;
+	     -o-box-shadow: $shadows;
+	        box-shadow: $shadows;
 }
 
 body {
@@ -229,6 +237,7 @@ p, ul, ol, h2, h3, h4, h5, blockquote {
 }
 
 @import "cover.scss";
+@import "searchbox.scss";
 
 #footer {
   margin-top: 30px;
