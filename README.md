@@ -4,6 +4,11 @@ Yogurt theme for WordPress
 ![Screenshot][1]
 
 This is a lightweight theme for WordPress that I use [on my own website][2].
+The first time you will need to install the `sass` gem by hand if your Ruby
+doesn't have it
+
+    gem install sass
+
 To build the project run (you will add the `-rubygems` flag when running on
 ruby < 1.9)
 
